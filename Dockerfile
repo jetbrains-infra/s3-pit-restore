@@ -19,5 +19,8 @@ ENV AWS_ACCESS_KEY_ID="" \
 
 RUN pip3 --no-cache-dir install s3-pit-restore awscli
 
+ADD s3-pit-restore /usr/local/bin/s3-pit-restore
+RUN chmod +x /usr/local/bin/s3-pit-restore
+
 ENTRYPOINT [ "s3-pit-restore" ]
 CMD [ "-h" ]
