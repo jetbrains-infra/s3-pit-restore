@@ -304,6 +304,8 @@ def do_restore():
     previous_deletemarkers = []
     for page in page_iterator:
         if not "Versions" in page:
+            if not "DeleteMarkers" in page:
+              continue
             print("No versions matching criteria, exiting ...", file=sys.stderr)
             sys.exit(1)
         versions = page["Versions"]
